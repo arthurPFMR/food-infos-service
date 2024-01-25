@@ -1,27 +1,21 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
+import Loader from "./Loader";
 
 const Card = ({ data }) => {
-
-  //   const [data, setData] = useState([]);
-
-  //   useEffect(() => {
-  //     axios
-  //       .get("https://world.openfoodfacts.net/api/v2/product/3017624010701")
-  //       .then((res) => setData(res.data.product));
-  //   }, []);
+  if (!data) {
+    return <div>{<Loader />}</div>;
+  }
   return (
+    <div className="cards-container">
     <div className="card">
-      <img src={data.image_front_small_url} alt={data.image_front_small_url} />
-      <h3>
-        {data.product_name} - {data.brands}
-      </h3>
-      <ul className="product-infos">
-        {/* condition img selon score ? */}
+      <img src={data.image_front_small_url} alt="" />
+      <h3>{data.product_name}</h3>
+      <ul className="infos">
         <li>nutriscore : {data.nutriscore_grade}</li>
         <li>Nova score : {data.nova_group}</li>
         <li>Eco-score : {data.ecoscore_grade}</li>
       </ul>
+    </div>
     </div>
   );
 };

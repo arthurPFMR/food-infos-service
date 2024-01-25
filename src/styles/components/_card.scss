@@ -1,3 +1,10 @@
-img {
-    width: 8%;
+.cards-container{
+    .card {
+        border: 1px solid blueviolet;
+    
+        img {
+            width: 80px;
+        }
+        
+    }
 }

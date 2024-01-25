@@ -3,23 +3,27 @@ import React, { useEffect, useState } from "react";
 import Card from "./Card";
 
 const Filters = () => {
-  const [dataProduct, setDataProduct] = useState([]);
-  const [dataValue, setDataValue] = useState("nutella");
+  const [data, setData] = useState([]);
+  const [searchValue, setSearchValue] = useState("bn");
 
   useEffect(() => {
     axios
-      .get("https://world.openfoodfacts.net/api/v2/search/" + dataValue )
-      .then((res) => setDataProduct(res.data.product));
-  }, [dataValue]);
+      .get(
+        `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${searchValue}&search_simple=1&action=process&json=1`
+      )
+      .then((res) => setData(res.data.products));
+    //   .then((res) => console.log(res.data.products))
+  }, [searchValue]);
   return (
     <div>
       <input
         type="text"
-        placeholder="Saisir un produit à rechercher"
-        onChange={(e) => setDataValue(e.target.value)}
+        name=""
+        id=""
+        onChange={(e) => setSearchValue(e.target.value)}
       />
       <div className="card">
-        {dataProduct.map((product) => (
+        {data.map((product) => (
           <Card key={product._id} data={product} />
         ))}
       </div>

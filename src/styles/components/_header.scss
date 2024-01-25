@@ -1,8 +1,13 @@
 .header {
     display: flex;
+    align-items: center;
+
+    h1 {
+        font-family:'Café Françoise', sans-serif;
+        font-size: 2rem;
+    }
 
     .logo-img {
-        height: 5%;
-        width: 5%;
+        width: 80px;
     }
 }
