@@ -1,13 +1,20 @@
 .header {
     display: flex;
-    align-items: center;
+    background: $light;
+    margin-top: 80px;
+    height: 375px;
+    padding: 20px;
 
-    h1 {
-        font-family:'Café Françoise', sans-serif;
-        font-size: 2rem;
+    img {
+        border-radius: 1000px;
+        padding-top: 15px;
     }
 
-    .logo-img {
-        width: 80px;
+    p {
+        margin-top: -15px;
+        width: 1200px;
+    }
+    i {
+        font-size: 0.7rem;
     }
 }

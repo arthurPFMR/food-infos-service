@@ -1,7 +1,22 @@
+$light: rgb(151, 204, 241);
+$lighter: rgb(212, 232, 255);
+$deep: rgb(129, 187, 226);
+$deeper: rgb(95, 138, 166);
+
+
+
 body {
-    background: rgb(182, 165, 179);
+    margin: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background: $lighter;
 }
 
 ul {
     list-style-type: none;
+}
+ 
+a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
 }

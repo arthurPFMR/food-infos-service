@@ -7,15 +7,25 @@ const Card = ({ data }) => {
   }
   return (
     <div className="cards-container">
-    <div className="card">
-      <img src={data.image_front_small_url} alt="" />
-      <h3>{data.product_name}</h3>
-      <ul className="infos">
-        <li>nutriscore : {data.nutriscore_grade}</li>
-        <li>Nova score : {data.nova_group}</li>
-        <li>Eco-score : {data.ecoscore_grade}</li>
-      </ul>
-    </div>
+      <div className="card">
+        <img
+          className="product-img"
+          src={data.image_front_url}
+          alt={data.product_name}
+        />
+        <h4>
+          {data.product_name} <br /> {data.brands}
+        </h4>
+        <p>
+          Lieu de fabrication :{" "}
+          {data.manufacturing_places ? data.manufacturing_places : "inconnu"}
+        </p>
+        <ul className="infos">
+          <li>nutriscore : {data.nutriscore_grade}</li>
+          <li>Nova score : {data.nova_group}</li>
+          <li>Eco-score : {data.ecoscore_grade}</li>
+        </ul>
+      </div>
     </div>
   );
 };

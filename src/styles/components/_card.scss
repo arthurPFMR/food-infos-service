@@ -1,10 +1,22 @@
-.cards-container{
+.cards {
+    padding-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+
     .card {
-        border: 1px solid blueviolet;
-    
+        height: 550px;
+        width: 300px;
+        background: white;
+        border-radius: 25px;
         img {
-            width: 80px;
+            height: 150px;
+            width: 150px;
+            object-fit: contain;
+            padding: 30px;
+            background: white;
         }
-        
+
     }
 }
