@@ -16,7 +16,7 @@ const Loader = () => {
       {loading ? (
         <div className="custom-loader"></div>
       ) : (
-        <h3>Aucun produit ne correspond à votre recherche</h3>
+        ""
       )}
     </div>
   );

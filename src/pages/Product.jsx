@@ -1,11 +1,11 @@
 import React from 'react';
-import Header from '../components/Header';
+import Card from '../components/Card';
 
-const Product = () => {
+const Product = ({ data }) => {
     return (
         <div>
-            <Header />
             <h2>Le produit clické</h2>
+
         </div>
     );
 };

@@ -3,10 +3,13 @@ $lighter: rgb(212, 232, 255);
 $deep: rgb(129, 187, 226);
 $deeper: rgb(95, 138, 166);
 
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
 body {
-    margin: 0;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background: $lighter;
 }

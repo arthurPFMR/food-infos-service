@@ -2,23 +2,44 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Logo from "../assets/img/logofood.webp";
 import Card from "./Card";
+import { NavLink } from "react-router-dom";
 
 const Filters = () => {
   const [data, setData] = useState([]);
+  // ! gerer les majuscules et minuscules
   const [searchValue, setSearchValue] = useState("riz");
-  const [popupOpen, setPopupOpen] = useState(false);
+  const [sortProducts, setSortProducts] = useState("minusPlus");
 
-
-  const handlePopup = () => {
-    setPopupOpen(!popupOpen);
+  const sortNutriscore = () => {
+    const sortData = [...data].sort((a, b) => {
+      return a.nutriscore_grade.localeCompare(b.nutriscore_grade);
+    });
+    setData(sortProducts === "plusMinus" ? sortData.reverse() : sortData);
+    setSortProducts(sortProducts === "plusMinus" ? "minusPlus" : "plusMinus");
   };
 
+  // const sortNovaScore = () => {
+  //   const sortData = [...data].sort((a, b) => {
+  //     return a.nova_group.localeCompare(b.nova_group);
+  //   })
+  // setData(sortProducts === "plusMinus" ? sortData.reverse() : sortData );
+  // setSortProducts(sortProducts === "plusMinus" ? "minusPlus" : "plusMinus")
+  // }
+
   useEffect(() => {
-    axios
-      .get(
-        `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${searchValue}&search_simple=1&action=process&json=1`
-      )
-      .then((res) => setData(res.data.products));
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${searchValue}&search_simple=1&action=process&json=1`
+        );
+        setData(response.data.products);
+      } catch (error) {
+        console.error("Erreur lors de la requête API", error);
+      }
+    };
+    if (searchValue) {
+      fetchData();
+    }
   }, [searchValue]);
   return (
     <div>
@@ -40,35 +61,30 @@ const Filters = () => {
           />
         </div>
         <div className="filter-btn">
-          <button className="btn" onClick={() => handlePopup()}>
-            <i className="fa-solid fa-list"></i>
-            categorie
-            {popupOpen && (
-              <div className="popup">
-                <div className="popup-content">
-                  <h4>Choisisser une catégorie</h4>
-                  <ul>
-                    <li>Alimentation</li>
-                    <li>Boisson soft</li>
-                    <li>Boisson avec alcool</li>
-                    <li>Cosmétique</li>
-                  </ul>
-                </div>
-              </div>
-            )}
-          </button>
-          <button className="btn">
-            <i className="fa-solid fa-sort"></i>
+          <button className="btn" onClick={sortNutriscore}>
+            <i
+              className={
+                sortProducts === "minusPlus"
+                  ? "fa-solid fa-arrow-up-wide-short"
+                  : "fa-solid fa-arrow-down-wide-short"
+              }
+            ></i>
             nutriscore
           </button>
           <button className="btn">
             <i className="fa-solid fa-sort"></i>
             nova-score
           </button>
+          <NavLink to="/categories">
+            <button className="btn">
+              <i className="fa-solid fa-list"></i>
+              categorie
+            </button>
+          </NavLink>
         </div>
       </div>
       <div className="cards">
-        {data.map((product) => (
+        {data.slice(0, 20).map((product) => (
           <Card key={product._id} data={product} />
         ))}
       </div>
