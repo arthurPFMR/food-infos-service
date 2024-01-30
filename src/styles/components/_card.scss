@@ -49,6 +49,7 @@
                 visibility: visible;
             }
         }
+
         .product-img {
             height: 140px;
             object-fit: contain;
@@ -69,10 +70,6 @@
         .score-img {
             height: 40px;
         }
-
-        // &:hover {
-        //     opacity: 0.7;
-        // }
 
     }
 }

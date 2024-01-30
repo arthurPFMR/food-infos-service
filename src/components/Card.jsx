@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Loader from "./Loader";
 import { NavLink } from "react-router-dom";
 
@@ -20,12 +20,16 @@ import EcoC from "../assets/img/ecoC.ico";
 import EcoD from "../assets/img/ecoD.ico";
 import EcoE from "../assets/img/ecoE.ico";
 import EcoNo from "../assets/img/ecoNo.ico";
+import PopProduct from "./PopProduct";
 
 const Card = ({ data }) => {
+  const [popup, setPopup] = useState(false);
+
   if (!data) {
     return <div>{<Loader />}</div>;
   }
 
+  // _______________________________________________________________
   const Nutriscore = () => {
     let scoreImgNutri;
 
@@ -62,6 +66,7 @@ const Card = ({ data }) => {
     }
     return scoreImgNutri;
   };
+  // _______________________________________________________________
   const Novascore = () => {
     let scoreImgNova;
 
@@ -93,6 +98,7 @@ const Card = ({ data }) => {
     }
     return scoreImgNova;
   };
+  // _______________________________________________________________
   const Ecoscore = () => {
     let scoreImgEco;
 
@@ -129,17 +135,35 @@ const Card = ({ data }) => {
     }
     return scoreImgEco;
   };
+  // _______________________________________________________________
+  const manufactureArray =
+    data.manufacturing_places && typeof data.manufacturing_places === "string"
+      ? data.manufacturing_places.split(",")
+      : [data.manufacturing_places];
 
+  const lastElement =
+    manufactureArray.length > 1
+      ? manufactureArray.pop().trim()
+      : manufactureArray[0];
+  // _______________________________________________________________
+  const handlePopup = () => {
+    setPopup(true);
+  };
+  const closePopup = () => {
+    setPopup(false);
+  };
   return (
     <div className="cards-container">
       <div className="card">
-        <NavLink to="/produit">
-          <button className="view-product">
-            <i className="fa-solid fa-right-long"></i>
-            <span className="bubble">Voir plus</span>
-          </button>
-        </NavLink>
-
+        <button className="view-product" onClick={handlePopup}>
+          <i className="fa-solid fa-right-long"></i>
+          <span className="bubble">Voir plus</span>
+        </button>
+        {popup && (
+          <div className="popup-container">
+            {<PopProduct data={data}  onClose={closePopup}/>}
+          </div>
+        )}
         {data.image_front_url ? (
           <img
             className="product-img"
@@ -147,16 +171,23 @@ const Card = ({ data }) => {
             alt={data.product_name}
           />
         ) : (
-          <img className="product-img" src={NoImg} />
+          // eslint-disable-next-line
+          <img
+            className="product-img"
+            src={NoImg}
+            alt="pas d'image pour ce produit"
+          />
         )}
-        <h4>
+        <h4 className="brand">
           {data.product_name} <br /> {data.brands}
         </h4>
+        {/* // ! attention adresse depasse de la carte - mettre uniquement le pays */}
         <p className="place-info">
-          Lieu de fabrication :
+          Pays de fabrication :
+          <br />
           <span className="place-info bold">
             {" "}
-            {data.manufacturing_places ? data.manufacturing_places : "Inconnu"}
+            {data.manufacturing_places ? lastElement : "Inconnu"}
           </span>
         </p>
         <ul className="infos">

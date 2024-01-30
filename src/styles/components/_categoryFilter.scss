@@ -1,0 +1,19 @@
+.category-choices {
+    margin-top: 100px;
+    padding: 50px;
+    .category-btns {
+        display: flex;
+        justify-content: space-between;
+
+    }
+    .category-btn {
+        cursor: pointer;
+        padding: 8px;
+        width: 220px;
+        background: $light;
+        border-radius: 25px;
+    }
+}
+.clicked-btn {
+    background: red;
+}

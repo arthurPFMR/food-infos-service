@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Card from "./Card";
+import Loader from "./Loader";
 
 const Category = () => {
   const [category, setCategory] = useState("");
@@ -29,33 +30,56 @@ const Category = () => {
 
   return (
     <div>
-      <div className="popup-content">
+      <div className="category-choices">
         <h4>Choisissez une catégorie (liste non exhaustive)</h4>
-        <ul>
-          <li onClick={() => handleCategoryChange("plats-prepares")}>
+        <ul className="category-btns">
+          <li
+            className="category-btn"
+            onClick={() => handleCategoryChange("plats-prepares") && "clicked-btn"}
+          >
             Plats préparés
           </li>
-          <li onClick={() => handleCategoryChange("viandes-derives")}>
+          <li
+            className="category-btn"
+            onClick={() => handleCategoryChange("viandes-derives")}
+          >
             Viandes et dérivés
           </li>
-          <li onClick={() => handleCategoryChange("poissons-derives")}>
+          <li
+            className="category-btn"
+            onClick={() => handleCategoryChange("poissons-derives")}
+          >
             Poissons et dérivés
           </li>
-          <li onClick={() => handleCategoryChange("confiseries")}>
+          <li
+            className="category-btn"
+            onClick={() => handleCategoryChange("confiseries")}
+          >
             Confiseries
           </li>
-          <li onClick={() => handleCategoryChange("boissons")}>Boissons</li>
-          <li onClick={() => handleCategoryChange("boissons-alcoolisees")}>
+          <li
+            className="category-btn"
+            onClick={() => handleCategoryChange("boissons")}
+          >
+            Boissons
+          </li>
+          <li
+            className="category-btn"
+            onClick={() => handleCategoryChange("boissons-alcoolisees")}
+          >
             Boissons alcoolisées
           </li>
-          <li onClick={() => handleCategoryChange("cosmetiques")}>
+          <li
+            className="category-btn"
+            onClick={() => handleCategoryChange("cosmetiques")}
+          >
             Cosmétiques
           </li>
         </ul>
         <h4>Produits dans la catégorie {category} :</h4>
         <div className="cards">
           {products.map((product, index) => (
-            <Card key={index} data={product}/>
+            <Card key={index} data={product} />
           ))}
         </div>
       </div>
