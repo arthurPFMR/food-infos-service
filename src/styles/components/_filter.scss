@@ -10,11 +10,13 @@
     .logo {
         display: flex;
         align-items: center;
+        gap: 1vw;
+        padding: 10px;
 
         h1 {
             font-family: 'Café Françoise', sans-serif;
             font-size: 1.7rem;
-            padding-right: 100px;
+            padding-right: 5vw;
         }
 
         .logo-img {
@@ -28,31 +30,60 @@
     #search {
         margin: 30px;
         padding: 5px;
-        width: 350px;
+        width: 15vw;
         border-radius: 1000px;
         border: 0;
     }
 }
 
 .filter-btn {
-    padding-left: 100px;
+    padding-left: 5vw;
 
     .btn {
+        background: $lighter;
         margin-left: 50px;
         border-radius: 25px;
         border: 0;
-        background: $lighter;
         padding: 8px;
         width: 160px;
+        transition: transform 0.3s ease-in-out;
 
         &:hover {
+            box-shadow: 0 0 5px 0 $deeper;
             cursor: pointer;
         }
 
         i {
             padding-right: 10px;
         }
+
     }
 
-}
+    @keyframes colorChange {
+        0% {
+            background-color: #c6ffc3;
+        }
 
+        50% {
+            background-color: #fff5bd;
+        }
+
+        100% {
+            background-color: #ffbaba;
+        }
+    }
+
+
+    .clicked-btn-minus {
+        background: rgb(204, 255, 213);
+        // background: linear-gradient(to right, rgb(169, 255, 185) 40%, rgb(255, 146, 146));
+        animation: colorChange 1s 1 reverse forwards;
+
+    }
+
+    .clicked-btn-plus {
+        background: rgb(255, 200, 200);
+        //    background:  linear-gradient(to right, rgb(255, 146, 146)40%, rgb(169, 255, 185));
+        animation: colorChange 1s 1 forwards;
+    }
+}

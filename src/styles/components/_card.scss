@@ -15,7 +15,12 @@
         width: 300px;
         padding: 10px 25px 20px 15px;
         background: white;
-        border-radius: 25px;
+        border-radius: 15px;
+        transition: transform 0.3s ease-in-out;
+
+        &:hover {
+            box-shadow: 0 0 5px 2px $light;
+        }
 
         .view-product {
             cursor: pointer;
@@ -30,17 +35,26 @@
 
             i {
                 padding: 0 0 10px 5px;
+                transition: opacity 0.3s ease-in-out;
             }
 
             .bubble {
                 position: absolute;
-                right: -90%;
+                padding: 20px;
+                right: -80%;
                 bottom: 0;
                 background: $lighter;
                 border-radius: 100px;
-                padding: 20px;
                 visibility: hidden;
+                opacity: 0;
                 background: $light;
+                transition: opacity 0.5s ease-in-out;
+                z-index: 9999;
+
+                &:hover {
+                    visibility: visible;
+                    opacity: 1;
+                }
             }
         }
 
@@ -48,17 +62,15 @@
             .bubble {
                 visibility: visible;
             }
+            i {
+                opacity: 0;
+            }
         }
 
         .product-img {
             height: 140px;
             object-fit: contain;
-        }
-
-        .place-info {
-            .bold {
-                font-weight: 500;
-            }
+            padding: 10px;
         }
 
         ul {

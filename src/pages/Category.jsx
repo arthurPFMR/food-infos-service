@@ -1,6 +1,5 @@
 import React from 'react';
 import CategoryFilter from '../components/CategoryFilter';
-import Filters from '../components/Filters';
 import Logo from "../assets/img/logofood.webp";
 import { NavLink } from 'react-router-dom';
 

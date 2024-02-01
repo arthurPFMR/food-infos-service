@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Loader from "./Loader";
-import { NavLink } from "react-router-dom";
 
 import NoImg from "../assets/img/noImg.webp";
 import NutriA from "../assets/img/nutriA.ico";
@@ -171,19 +170,17 @@ const Card = ({ data }) => {
             alt={data.product_name}
           />
         ) : (
-          // eslint-disable-next-line
           <img
             className="product-img"
             src={NoImg}
-            alt="pas d'image pour ce produit"
+            alt={data.product_name}
           />
         )}
         <h4 className="brand">
-          {data.product_name} <br /> {data.brands}
+          {data.product_name} <br /> {data.brands.split(",").join(" - ")}
         </h4>
-        {/* // ! attention adresse depasse de la carte - mettre uniquement le pays */}
         <p className="place-info">
-          Pays de fabrication :
+          Lieu de fabrication :
           <br />
           <span className="place-info bold">
             {" "}

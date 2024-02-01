@@ -6,8 +6,9 @@ const Header = () => {
     <div className="header">
       <img src={Avocado} alt="illustration d'un avocat kawaii" />
       <div className="intro">
+        <div className="app-description">
         <h4>Bienvenue ;)</h4>
-        <p className="app-description">
+        <p>
           Food infos service est une application React qui permet aux
           utilisateurs d'explorer et de découvrir des informations détaillées
           sur différents produits alimentaires à partir de la base de données
@@ -16,15 +17,18 @@ const Header = () => {
           Facts de manière intuitive. <br />
           Soutenir{" "}
           <a
+          className="bold"
             href="https://fr.openfoodfacts.org/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Open Food Facts <i className="fa-solid fa-arrow-right"></i>
+            Open Food Facts <i class="fa-solid fa-up-right-from-square"></i>
           </a>
         </p>
+        </div>
+        <div className="utils-infos">
         <h4>Informations :</h4>
-        <p className="utils-infos">
+        <p>
           Le Nutri-Score est un système d'étiquetage nutritionnel créé pour
           aider les consommateurs à faire des choix alimentaires plus informés.
           Il attribue une note (A à E) à un produit alimentaire en fonction de
@@ -37,6 +41,7 @@ const Header = () => {
           mettant l'accent sur les effets des aliments ultra-transformés sur la
           santé.
         </p>
+        </div>
       </div>
     </div>
   );

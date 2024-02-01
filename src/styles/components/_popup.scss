@@ -13,8 +13,8 @@
     .popup-content {
         position: relative;
         background: $lighter;
-        width: 900px;
-        height: 800px;
+        width: 80%;
+        height: 90%;
         padding: 25px;
         border-radius: 25px;
 
@@ -25,9 +25,13 @@
             right: 0;
             height: 65px;
             width: 65px;
-            background: $light;
+            background: $deep;
             border: 0;
             border-radius: 68% 32% 0% 100% / 0% 30% 70% 100%;
+
+            &:hover {
+                background: $light;
+            }
 
             .fa-xmark {
                 font-size: 1.5rem;
@@ -35,10 +39,30 @@
             }
         }
 
+        h4 {
+            font-size: 1.5rem;
+        }
+
         .popup-img {
-            height: 200px;
+            background: white;
+            border-radius: 15px;
+            margin: 4vh;
+            height: 250px;
             width: 400px;
             object-fit: contain;
+            transition: transform 0.2s ease-in-out;
+
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+
+        .description {
+            padding: 15px;
+
+            p {
+                padding-bottom: 10px;
+            }
         }
     }
 

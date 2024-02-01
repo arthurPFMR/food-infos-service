@@ -1,18 +1,27 @@
 .header {
     display: flex;
     background: $light;
-    margin-top: 80px;
-    height: 375px;
-    padding: 20px;
+    margin-top: 5vh;
+    height: 45vh;
+
+    .intro {
+        padding-top: 10vh;
+        padding-right: 4vw;
+
+        .utils-infos {
+            padding-top: 1vh;
+        }
+    }
 
     img {
-        border-radius: 1000px;
-        padding-top: 15px;
+        width: 30%;
+        padding-top: 8vh;
     }
 
     p {
-        width: 1200px;
+        width: 100%;
     }
+
     i {
         font-size: 0.7rem;
     }

@@ -8,10 +8,10 @@ const Filters = () => {
   const [data, setData] = useState([]);
   // ! gerer les majuscules et minuscules
   const [searchValue, setSearchValue] = useState("riz");
-  const [sortByNutri, setSortByNutri] = useState("minusPlus");
-  const [sortByNova, setSortByNova] = useState("minusPlus");
-  const [sortByEco, setSortByEco] = useState("minusPlus");
-// _______________________________________________________________________________
+  const [sortByNutri, setSortByNutri] = useState("unSorted");
+  const [sortByNova, setSortByNova] = useState("unSorted");
+  const [sortByEco, setSortByEco] = useState("unSorted");
+  // _______________________________________________________________________________
   const sortNutriscore = () => {
     const sortData = [...data].sort((a, b) => {
       return a.nutriscore_grade.localeCompare(b.nutriscore_grade);
@@ -19,7 +19,7 @@ const Filters = () => {
     setData(sortByNutri === "plusMinus" ? sortData.reverse() : sortData);
     setSortByNutri(sortByNutri === "plusMinus" ? "minusPlus" : "plusMinus");
   };
-// _______________________________________________________________________________
+  // _______________________________________________________________________________
   const sortNovaScore = () => {
     const sortData = [...data].sort((a, b) => {
       return a.nova_groups.localeCompare(b.nova_groups);
@@ -27,7 +27,7 @@ const Filters = () => {
     setData(sortByNova === "plusMinus" ? sortData.reverse() : sortData);
     setSortByNova(sortByNova === "plusMinus" ? "minusPlus" : "plusMinus");
   };
-// _______________________________________________________________________________
+  // _______________________________________________________________________________
   const sortEcoScore = () => {
     const sortData = [...data].sort((a, b) => {
       return a.ecoscore_grade.localeCompare(b.ecoscore_grade);
@@ -35,7 +35,7 @@ const Filters = () => {
     setData(sortByEco === "plusMinus" ? sortData.reverse() : sortData);
     setSortByEco(sortByEco === "plusMinus" ? "minusPlus" : "plusMinus");
   };
-// _______________________________________________________________________________
+  // _______________________________________________________________________________
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -55,51 +55,66 @@ const Filters = () => {
   return (
     <div>
       <div className="nav">
-          <NavLink to="/">
-        <div className="logo">
-          <img
-            className="logo-img"
-            src={Logo}
-            alt="logo du site représentant une pomme et une loupe"
-          />
-          <h1>FOOD INFOS SERVICE</h1>
-        </div>
-          </NavLink>
+        <NavLink to="/">
+          <div className="logo">
+            <img
+              className="logo-img"
+              src={Logo}
+              alt="logo du site représentant une pomme et une loupe"
+            />
+            <h1>FOOD INFOS SERVICE</h1>
+          </div>
+        </NavLink>
         <div className="filters">
           <input
             type="text"
-            placeholder=" Chercher un produit par marque, mot clé..."
+            placeholder=" Chercher un produit..."
             id="search"
             onChange={(e) => setSearchValue(e.target.value)}
           />
         </div>
         <div className="filter-btn">
-          <button className="btn" onClick={sortNutriscore}>
+          <button
+            className={`btn ${
+              sortByNutri === "minusPlus" ? "clicked-btn-plus" : ""
+            } ${sortByNutri === "plusMinus" ? "clicked-btn-minus" : ""}`}
+            onClick={sortNutriscore}
+          >
             <i
               className={
                 sortByNutri === "minusPlus"
-                  ? "fa-solid fa-arrow-up-wide-short"
-                  : "fa-solid fa-arrow-down-wide-short"
+                  ? "fa-solid fa-arrow-down-wide-short"
+                  : "fa-solid fa-arrow-up-wide-short"
               }
             ></i>
             nutriscore
           </button>
-          <button className="btn" onClick={sortNovaScore}>
+          <button
+            className={`btn  ${
+              sortByNova === "minusPlus" ? "clicked-btn-plus" : ""
+            } ${sortByNova === "plusMinus" ? "clicked-btn-minus" : ""}`}
+            onClick={sortNovaScore}
+          >
             <i
               className={
                 sortByNova === "minusPlus"
-                  ? "fa-solid fa-arrow-up-wide-short nova"
-                  : "fa-solid fa-arrow-down-wide-short nova"
+                  ? "fa-solid fa-arrow-down-wide-short nova"
+                  : "fa-solid fa-arrow-up-wide-short nova"
               }
             ></i>
             nova-score
           </button>
-          <button className="btn" onClick={sortEcoScore}>
+          <button
+            className={`btn  ${
+              sortByEco === "minusPlus" ? "clicked-btn-plus" : ""
+            } ${sortByEco === "plusMinus" ? "clicked-btn-minus" : ""}`}
+            onClick={sortEcoScore}
+          >
             <i
               className={
                 sortByEco === "minusPlus"
-                  ? "fa-solid fa-arrow-up-wide-short nova"
-                  : "fa-solid fa-arrow-down-wide-short nova"
+                  ? "fa-solid fa-arrow-down-wide-short nova"
+                  : "fa-solid fa-arrow-up-wide-short nova"
               }
             ></i>
             éco-score
