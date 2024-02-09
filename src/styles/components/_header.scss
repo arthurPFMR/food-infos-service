@@ -1,21 +1,29 @@
 .header {
     display: flex;
     background: $light;
-    margin-top: 5vh;
-    height: 45vh;
+    margin-top: 2vh;
+    height: 60vh;
+    padding: 5vh;
+    padding-top: 15vh;
+
+
+    .header-img {
+        display: flex;
+        width: 70%;
+        justify-content: center;
+
+        img {
+            height: 100%;
+        }
+    }
 
     .intro {
-        padding-top: 10vh;
         padding-right: 4vw;
+        overflow-y: auto;
 
         .utils-infos {
             padding-top: 1vh;
         }
-    }
-
-    img {
-        width: 30%;
-        padding-top: 8vh;
     }
 
     p {

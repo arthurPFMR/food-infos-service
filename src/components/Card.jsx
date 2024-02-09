@@ -24,14 +24,15 @@ import PopProduct from "./PopProduct";
 const Card = ({ data }) => {
   const [popup, setPopup] = useState(false);
 
+  // Si les données ne sont pas disponibles, afficher le composant Loader
   if (!data) {
     return <div>{<Loader />}</div>;
   }
 
-  // _______________________________________________________________
+  // Fonction utilitaire pour afficher l'image correspondant au Nutriscore du produit
   const Nutriscore = () => {
     let scoreImgNutri;
-
+    // switch pour gérer les différentes valeurs du Nutriscore
     switch (data.nutriscore_grade) {
       case "a":
         scoreImgNutri = (
@@ -65,10 +66,10 @@ const Card = ({ data }) => {
     }
     return scoreImgNutri;
   };
-  // _______________________________________________________________
+  // Fonction utilitaire pour afficher l'image correspondant au Novascore du produit
   const Novascore = () => {
     let scoreImgNova;
-
+    // switch pour gérer les différentes valeurs du Novascore
     switch (data.nova_group) {
       case 1:
         scoreImgNova = (
@@ -97,10 +98,10 @@ const Card = ({ data }) => {
     }
     return scoreImgNova;
   };
-  // _______________________________________________________________
+  // Fonction utilitaire pour afficher l'image correspondant au Écoscore du produit
   const Ecoscore = () => {
     let scoreImgEco;
-
+    // switch pour gérer les différentes valeurs du Écoscore
     switch (data.ecoscore_grade) {
       case "a":
         scoreImgEco = (
@@ -134,7 +135,7 @@ const Card = ({ data }) => {
     }
     return scoreImgEco;
   };
-  // _______________________________________________________________
+  // Traitement de la propriété manufacturing_places du produit
   const manufactureArray =
     data.manufacturing_places && typeof data.manufacturing_places === "string"
       ? data.manufacturing_places.split(",")
@@ -144,7 +145,7 @@ const Card = ({ data }) => {
     manufactureArray.length > 1
       ? manufactureArray.pop().trim()
       : manufactureArray[0];
-  // _______________________________________________________________
+  // Gestion de la popup
   const handlePopup = () => {
     setPopup(true);
   };
@@ -158,11 +159,13 @@ const Card = ({ data }) => {
           <i className="fa-solid fa-right-long"></i>
           <span className="bubble">Voir plus</span>
         </button>
+        {/* Affichage de la popup si la variable popup est true */}
         {popup && (
           <div className="popup-container">
-            {<PopProduct data={data}  onClose={closePopup}/>}
+            {<PopProduct data={data} onClose={closePopup} />}
           </div>
         )}
+        {/* Affichage de l'image du produit */}
         {data.image_front_url ? (
           <img
             className="product-img"
@@ -170,15 +173,13 @@ const Card = ({ data }) => {
             alt={data.product_name}
           />
         ) : (
-          <img
-            className="product-img"
-            src={NoImg}
-            alt={data.product_name}
-          />
+          <img className="product-img" src={NoImg} alt={data.product_name} />
         )}
+        {/* Affichage du nom du produit et de la marque */}
         <h4 className="brand">
-          {data.product_name} <br /> {data.brands.split(",").join(" - ")}
+          {data.product_name} <br /> {data.brands99}
         </h4>
+        {/* Affichage du lieu de fabrication */}
         <p className="place-info">
           Lieu de fabrication :
           <br />
@@ -187,6 +188,7 @@ const Card = ({ data }) => {
             {data.manufacturing_places ? lastElement : "Inconnu"}
           </span>
         </p>
+        {/* Affichage des scores Nutri, Nova, et Eco à l'aide des fonctions utilitaires */}
         <ul className="infos">
           <li>{<Nutriscore />}</li>
           <li>{<Novascore />}</li>

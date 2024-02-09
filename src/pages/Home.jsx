@@ -1,13 +1,11 @@
 import React from "react";
-import Header from "../components/Header";
-import Filters from "../components/Filters";
 import Card from "../components/Card";
+import HomeFilters from "../components/HomeFilters";
 
 const Home = () => {
   return (
     <div>
-      <Header />
-      <Filters />
+      <HomeFilters />
       <Card />
     </div>
   );
