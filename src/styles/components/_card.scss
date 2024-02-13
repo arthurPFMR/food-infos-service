@@ -1,5 +1,5 @@
 .cards {
-    padding-top: 40px;
+    padding-top: 3vh;
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
@@ -14,7 +14,7 @@
         height: 420px;
         width: 300px;
         padding: 10px 25px 20px 15px;
-        background: white;
+        background: rgb(243, 243, 243);
         border-radius: 15px;
         transition: transform 0.3s ease-in-out;
 
@@ -62,6 +62,7 @@
             .bubble {
                 visibility: visible;
             }
+
             i {
                 opacity: 0;
             }
@@ -83,5 +84,28 @@
             height: 40px;
         }
 
+    }
+}
+
+@media only screen and (max-width: 450px) {
+
+    .cards {
+        margin-top: -5vh;
+        .card-container {
+            height: 310px;
+            width: 300px;
+        }
+
+        .card {
+            transform: scale(0.75);
+
+            // .view-product {
+            //     transform: scale(0.4);
+            // }
+
+            // .product-img {
+            //     transform: scale(0.4);
+            // }
+        }
     }
 }

@@ -4,9 +4,7 @@ import Avocado from "../assets/img/avocado.webp";
 const Header = () => {
   return (
     <div className="header">
-      <div className="header-img">
       <img src={Avocado} alt="illustration d'un avocat kawaii" />
-      </div>
       <div className="intro">
         <div className="app-description">
         <h4>Bienvenue ;)</h4>

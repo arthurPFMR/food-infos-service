@@ -129,7 +129,7 @@ const HomeFilters = () => {
                 sortByNova === "plusMinus" ? "fa-solid fa-sort-up" : ""
               }`}
             ></i>
-            nova-score
+            nova
           </button>
           <button
             className={`btn  ${
@@ -144,7 +144,7 @@ const HomeFilters = () => {
                 sortByEco === "plusMinus" ? "fa-solid fa-sort-up" : ""
               }`}
             ></i>
-            éco-score
+            éco
           </button>
           {/* Lien vers la page des catégories */}
             <button className="btn">

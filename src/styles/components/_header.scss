@@ -2,24 +2,36 @@
     display: flex;
     background: $light;
     margin-top: 2vh;
-    height: 60vh;
-    padding: 5vh;
-    padding-top: 15vh;
+    height: 40vh;
+    margin-top: 10vh;
+    padding: 3% 4% 3% 3%;
 
-
-    .header-img {
-        display: flex;
-        width: 70%;
-        justify-content: center;
-
-        img {
-            height: 100%;
-        }
+    img {
+        height: 90%;
+        margin: 0 0 3% 0;
     }
 
     .intro {
-        padding-right: 4vw;
+        width: 80%;
         overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: $lighter;
+            border-radius: 6px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $deeper;
+            border-radius: 6px;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background-color: $deep;
+        }
 
         .utils-infos {
             padding-top: 1vh;
@@ -32,5 +44,25 @@
 
     i {
         font-size: 0.7rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+
+        img {
+            display: none;
+        }
+
+        .intro {
+            width: auto;
+        }
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .intro {
+        font-size: 75%;
     }
 }

@@ -153,7 +153,7 @@ const Card = ({ data }) => {
     setPopup(false);
   };
   return (
-    <div className="cards-container">
+    <div className="card-container">
       <div className="card">
         <button className="view-product" onClick={handlePopup}>
           <i className="fa-solid fa-right-long"></i>
