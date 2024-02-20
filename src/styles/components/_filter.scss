@@ -1,4 +1,5 @@
-.nav {
+.nav,
+.duo {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -8,7 +9,7 @@
     height: 10vh;
     top: 0;
     padding: 3%;
-    z-index: 9999;
+    z-index: 999;
 
     .logo {
         display: flex;
@@ -18,7 +19,8 @@
 
         h1 {
             font-family: 'Café Françoise', sans-serif;
-            font-size: 1.5rem;
+            font-size: 100%;
+            min-width: 100%;
         }
 
         .logo-img {
@@ -26,64 +28,68 @@
             width: 70px;
         }
     }
-}
 
-.filters {
-    width: auto;
+    .filters {
+        width: auto;
 
-    #search {
-        padding: 3%;
-        height: 2.5vh;
-        width: 12vw;
-        border-radius: 25px;
-        border: 0;
+        #search {
+            padding: 3%;
+            height: 2.5vh;
+            width: auto;
+            border-radius: 25px;
+            border: 0;
+        }
     }
-}
 
-.filter-btn {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 1vw;
-    width: auto;
-
-
-
-    .btn {
+    .filter-btn {
         display: flex;
-        justify-content: center;
+        flex-wrap: wrap;
         align-items: center;
-        background: $lighter;
-        border-radius: 25px;
-        border: 0;
-        height: 2.5vh;
-        min-width: 10vw;
-        padding: 2%;
-        transition: transform 0.3s ease-in-out;
+        gap: 1vw;
+        width: auto;
 
-        &:hover {
-            box-shadow: 0 0 5px 0 $deeper;
-            cursor: pointer;
+
+
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: $lighter;
+            border-radius: 25px;
+            border: 0;
+            height: 2.5vh;
+            min-width: 10vw;
+            padding: 2%;
+            transition: transform 0.3s ease-in-out;
+
+            &:hover {
+                box-shadow: 0 0 5px 0 $deeper;
+                cursor: pointer;
+            }
+
+            i {
+                padding-right: 10px;
+            }
+
         }
 
-        i {
-            padding-right: 10px;
+        .clicked-btn-minus {
+            background: rgb(204, 255, 213);
         }
 
-    }
-
-    .clicked-btn-minus {
-        background: rgb(204, 255, 213);
-    }
-
-    .clicked-btn-plus {
-        background: rgb(255, 200, 200);
+        .clicked-btn-plus {
+            background: rgb(255, 200, 200);
+        }
     }
 }
+
+
 
 
 @media only screen and (max-width: 950px) {
-    .nav {
+
+    .nav,
+    .duo {
         padding-top: 1vh;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -100,7 +106,7 @@
             width: auto;
 
             #search {
-                width: 25vw;
+                min-width: 100px;
             }
         }
 
@@ -112,12 +118,16 @@
     }
 }
 
-@media only screen and (max-width: 450px) {
-    .nav {
+@media only screen and (max-width: 490px) {
+
+    .nav,
+    .duo {
+
         .logo {
             h1 {
                 font-size: 0.75rem;
             }
+
             .logo-img {
                 width: 35px;
             }
@@ -125,6 +135,7 @@
 
         .filters {
             width: 40vw;
+
             #search {
                 width: 100%;
                 padding: 3%;
@@ -133,7 +144,9 @@
         }
 
         .filter-btn {
-            .btn, i {
+
+            .btn,
+            i {
                 font-size: 60%;
             }
         }

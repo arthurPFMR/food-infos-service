@@ -4,14 +4,17 @@
     gap: 1vh;
     margin-top: 100px;
     padding: 50px;
+
     .category-btns {
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
         gap: 1vw;
     }
+
     .category-btn {
         cursor: pointer;
-        padding: 1%;
+        padding: 2%;
         background: $light;
         border-radius: 25px;
 
@@ -19,8 +22,22 @@
             box-shadow: 0 0 5px 0 $deeper;
             cursor: pointer;
         }
+
+    }
+
+    .clicked-btn {
+        transform: scale(1.05);
+        box-shadow: 0 0 5px 0 $deeper;
+        font-weight: bold;
     }
 }
-.clicked-btn {
-    background: red;
+
+@media only screen and (max-width: 450px) {
+    .category-btns {
+        font-size: 75%;
+
+        .category-btn {
+            padding: 3%;
+        }
+    }
 }

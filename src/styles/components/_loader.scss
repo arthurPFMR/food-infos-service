@@ -1,20 +1,25 @@
 .custom-loader-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.custom-loader {
+  border: 8px solid $deeper;
+  border-top: 8px solid $light;
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  .custom-loader {
-    border: 8px solid $deeper;
-    border-top: 8px solid $light;
-    border-radius: 50%;
-    width: 75px;
-    height: 75px;
-    animation: spin 1s linear infinite;
+
+  100% {
+    transform: rotate(360deg);
   }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+}

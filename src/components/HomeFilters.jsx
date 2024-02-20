@@ -76,7 +76,7 @@ const HomeFilters = () => {
   return (
     <div>
       {/* Barre de navigation avec le logo, la barre de recherche, les filtres de tri et un lien vers les catégories */}
-      <div className="nav">
+      <div className="nav duo">
         <div className="title">
         <NavLink to="/">
           <div className="logo">
@@ -98,7 +98,6 @@ const HomeFilters = () => {
             onChange={(e) => setSearchValue(e.target.value)}
           />
         </div>
-
         {/* Boutons de tri en utilisant les fonctions de tri définies */}
         <div className="filter-btn">
           <button

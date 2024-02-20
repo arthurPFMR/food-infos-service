@@ -9,6 +9,7 @@ import { NavLink } from "react-router-dom";
 const CategoryFilter = () => {
   // Utilisation des états pour gérer les différentes données et actions
   const [category, setCategory] = useState("plats-prepares");
+  const [selectedCategory, setSelectedCategory] = useState("plats-prepares");
   const [products, setProducts] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [sortByNutri, setSortByNutri] = useState("unSorted");
@@ -53,6 +54,7 @@ const CategoryFilter = () => {
   // Fonction pour gérer le changement de catégorie
   const handleCategoryChange = (selectedCategory) => {
     setCategory(selectedCategory);
+    setSelectedCategory(selectedCategory);
   };
 
   // Fonctions de tri pour les scores nutritionnels, Nova et Eco
@@ -87,7 +89,7 @@ const CategoryFilter = () => {
 
   return (
     <div>
-      <div className="nav">
+      <div className="nav duo">
         {/* Logo avec lien vers la page d'accueil */}
         <NavLink to="/">
           <div className="logo">
@@ -117,45 +119,57 @@ const CategoryFilter = () => {
         {/* Liste de boutons de catégorie avec gestion des événements de clic */}
         <ul className="category-btns">
           <li
-            className="category-btn"
-            onClick={() =>
-              handleCategoryChange("plats-prepares") && "clicked-btn"
-            }
+            className={`category-btn ${
+              selectedCategory === "plats-prepares" && "clicked-btn"
+            }`}
+            onClick={() => handleCategoryChange("plats-prepares")}
           >
             Plats préparés
           </li>
           <li
-            className="category-btn"
+            className={`category-btn ${
+              selectedCategory === "fromages" && "clicked-btn"
+            }`}
             onClick={() => handleCategoryChange("fromages")}
           >
             Fromages
           </li>
           <li
-            className="category-btn"
+            className={`category-btn ${
+              selectedCategory === "poissons" && "clicked-btn"
+            }`}
             onClick={() => handleCategoryChange("poissons")}
           >
             Poissons
           </li>
           <li
-            className="category-btn"
+            className={`category-btn ${
+              selectedCategory === "confiseries" && "clicked-btn"
+            }`}
             onClick={() => handleCategoryChange("confiseries")}
           >
             Confiseries
           </li>
           <li
-            className="category-btn"
+            className={`category-btn ${
+              selectedCategory === "boissons" && "clicked-btn"
+            }`}
             onClick={() => handleCategoryChange("boissons")}
           >
             Boissons
           </li>
           <li
-            className="category-btn"
+            className={`category-btn ${
+              selectedCategory === "boissons-alcoolisees" && "clicked-btn"
+            }`}
             onClick={() => handleCategoryChange("boissons-alcoolisees")}
           >
             Boissons alcoolisées
           </li>
           <li
-            className="category-btn"
+            className={`category-btn ${
+              selectedCategory === "frais" && "clicked-btn"
+            }`}
             onClick={() => handleCategoryChange("frais")}
           >
             Produits frais

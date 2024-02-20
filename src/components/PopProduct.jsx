@@ -17,6 +17,7 @@ const PopProduct = ({ data, onClose }) => {
       {/* Affichage du nom du produit */}
       <h4>{data.product_name}</h4>
       {/* Affichage de l'image du produit ou d'une image par défaut si aucune image n'est disponible */}
+      <div className="img-container">
       {data.image_front_url ? (
         <img
           className="popup-img"
@@ -46,6 +47,7 @@ const PopProduct = ({ data, onClose }) => {
           alt={data.product_name}
         />
       )}
+      </div>
       {/* Affichage des informations détaillées du produit */}
       <div className="description">
         <p>
