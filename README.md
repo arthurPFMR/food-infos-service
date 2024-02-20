@@ -18,7 +18,7 @@ Chaque produit affiche des détails tels que son nom, sa catégorie, son pays d'
 
 ### Filtrage et Tri :
 
-Les utilisateurs ont la possibilité de filtrer les résultats en fonction de différentes catégories, du pays d'origine, ou d'autres critères spécifiques. De plus, un mécanisme de tri peut être utilisé pour organiser les résultats en fonction de diverses caractéristiques.
+Les utilisateurs ont la possibilité de filtrer les résultats en fonction de différentes catégories. De plus, un mécanisme de tri peut être utilisé pour organiser les résultats en fonction de diverses caractéristiques.
 
 ### Interaction Intuitive :
 
